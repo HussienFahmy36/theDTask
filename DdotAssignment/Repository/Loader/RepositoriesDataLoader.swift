@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Disk
+
 struct RepositoriesDataLoader {
 
     var pagination: Pagination?
@@ -33,7 +35,9 @@ struct RepositoriesDataLoader {
         manager.getRequestAsync(from: url) { (data, error) in
             if error == nil {
                 let dataParser = JsonParserCodable()
-                let result = dataParser.parse(data: data, to: [Repository].self)
+                guard let result = dataParser.parse(data: data, to: [Repository].self) else {
+                    return
+                }
                 completionBlock(result, nil)
             } else {
                 completionBlock(nil, error)
