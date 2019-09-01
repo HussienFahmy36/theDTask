@@ -26,14 +26,14 @@ public class Reachability: ReachabilityProtocol {
         if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
             return false
         }
+        
 
-        /* Only Working for WIFI
-         let isReachable = flags == .reachable
-         let needsConnection = flags == .connectionRequired
+         let wifiIsReachable = flags == .reachable
+         let wifiNeedsConnection = flags == .connectionRequired
 
-         return isReachable && !needsConnection
-         */
-
+        if wifiIsReachable && !wifiNeedsConnection {
+             return true
+        }
         // Working for Cellular and WIFI
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0

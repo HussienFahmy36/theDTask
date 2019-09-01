@@ -15,6 +15,7 @@ struct RepositoriesDataLoader {
             pagination?.pageID = newValue
         }
     }
+
     var recordsPerPage = 15 {
         didSet(newValue) {
             pagination?.recordsPerPage = newValue

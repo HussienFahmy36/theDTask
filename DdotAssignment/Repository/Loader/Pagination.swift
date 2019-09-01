@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct Pagination {
     var pageID: Int = 0
     var recordsPerPage: Int = 0
