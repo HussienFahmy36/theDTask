@@ -20,6 +20,7 @@ class JsonParserCodableTests: XCTestCase {
 
     func testLoadRepFirstPage() {
         let networkManager = NetworkManager()
+        networkManager.reachability = Reachability()
         let urlString = "https://api.github.com/users/JakeWharton/repos?page=1&per_page=15"
         guard let sampleURL = URL.init(string: urlString) else {
             XCTFail("URL not valid")
