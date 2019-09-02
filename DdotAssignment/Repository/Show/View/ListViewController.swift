@@ -11,6 +11,7 @@ import UIKit
 class ListViewController: UIViewController {
 
     let viewModel = ListViewModel()
+    let cellHeight = 200
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -46,6 +47,15 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(cellHeight)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if viewModel.shouldFetchNext(currentIndex: indexPath.row) {
+            loadAndView()
+        }
+    }
 
 }
 
