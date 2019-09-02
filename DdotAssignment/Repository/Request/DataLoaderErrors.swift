@@ -8,8 +8,9 @@
 
 import Foundation
 
-enum NetworkManagerErrors: Error {
+enum DataLoaderErrors: Error {
     case noNetwork
     case urlNotFound
     case requestFailed
+    case loadFromCacheFails
 }

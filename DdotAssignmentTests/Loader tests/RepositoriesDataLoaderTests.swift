@@ -21,7 +21,17 @@ class RepositoriesDataLoaderTests: XCTestCase {
 
     func testLoadRepositories() {
         let expectation = self.expectation(description: "Loading repos")
-        repositoriesDataLoader?.loadRepositories(completionBlock: { (result, error) in
+        repositoriesDataLoader?.remoteLoadRepositories(completionBlock: { (result, error) in
+            expectation.fulfill()
+            XCTAssertNotNil(result)
+        })
+        waitForExpectations(timeout: 2, handler: nil)
+
+    }
+
+    func testLoadRepositoriesLocal() {
+        let expectation = self.expectation(description: "Loading repos")
+        repositoriesDataLoader?.localLoadRepositories(completionBlock: { (result, error) in
             expectation.fulfill()
             XCTAssertNotNil(result)
         })
@@ -32,7 +42,7 @@ class RepositoriesDataLoaderTests: XCTestCase {
     func testLoadRepositoriesFiveRecords() {
         repositoriesDataLoader?.recordsPerPage = 5
         let expectation = self.expectation(description: "Loading repos with 5 per page")
-        repositoriesDataLoader?.loadRepositories(completionBlock: { (result, error) in
+        repositoriesDataLoader?.remoteLoadRepositories(completionBlock: { (result, error) in
             expectation.fulfill()
             XCTAssertNotNil(result)
             XCTAssertNotNil(result?.count == 5)
@@ -42,10 +52,21 @@ class RepositoriesDataLoaderTests: XCTestCase {
 
     }
 
+    func testloadRepositories() {
+        let expectation = self.expectation(description: "Loading repos with 5 per page")
+        repositoriesDataLoader?.loadRepositories(completionBlock: { (result, error) in
+            expectation.fulfill()
+            XCTAssertNotNil(result)
+
+        })
+        waitForExpectations(timeout: 2, handler: nil)
+
+    }
+
     func testLoadRepositoriesInvalidPageId() {
         repositoriesDataLoader?.pageID = 15000303030303030
         let expectation = self.expectation(description: "Loading repos with 5 per page")
-        repositoriesDataLoader?.loadRepositories(completionBlock: { (result, error) in
+        repositoriesDataLoader?.remoteLoadRepositories(completionBlock: { (result, error) in
             expectation.fulfill()
             XCTAssertTrue(result?.count == 0)
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,7 @@
 		3A05764E231C54520056F7E5 /* RepositoriesDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05764D231C54520056F7E5 /* RepositoriesDataLoaderTests.swift */; };
 		3A057650231C58C90056F7E5 /* ReachabilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05764F231C58C90056F7E5 /* ReachabilityProtocol.swift */; };
 		3A057652231C58EA0056F7E5 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A057651231C58EA0056F7E5 /* Reachability.swift */; };
-		3A057654231C597F0056F7E5 /* NetworkManagerErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A057653231C597F0056F7E5 /* NetworkManagerErrors.swift */; };
+		3A057654231C597F0056F7E5 /* DataLoaderErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A057653231C597F0056F7E5 /* DataLoaderErrors.swift */; };
 		3A057658231C5A650056F7E5 /* ReachabilityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A057657231C5A650056F7E5 /* ReachabilityMock.swift */; };
 		3A6F6517231B277B00168ECE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F6516231B277B00168ECE /* AppDelegate.swift */; };
 		3A6F6519231B277B00168ECE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F6518231B277B00168ECE /* ViewController.swift */; };
@@ -44,7 +44,7 @@
 		3A05764D231C54520056F7E5 /* RepositoriesDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesDataLoaderTests.swift; sourceTree = "<group>"; };
 		3A05764F231C58C90056F7E5 /* ReachabilityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityProtocol.swift; sourceTree = "<group>"; };
 		3A057651231C58EA0056F7E5 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		3A057653231C597F0056F7E5 /* NetworkManagerErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerErrors.swift; sourceTree = "<group>"; };
+		3A057653231C597F0056F7E5 /* DataLoaderErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderErrors.swift; sourceTree = "<group>"; };
 		3A057657231C5A650056F7E5 /* ReachabilityMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityMock.swift; sourceTree = "<group>"; };
 		3A6F6513231B277B00168ECE /* DdotAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DdotAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6F6516231B277B00168ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 		3A6F653A231B291700168ECE /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				3A057653231C597F0056F7E5 /* NetworkManagerErrors.swift */,
+				3A057653231C597F0056F7E5 /* DataLoaderErrors.swift */,
 				3A6F653B231B292700168ECE /* NetworkManager.swift */,
 				3A6F653F231B2B2200168ECE /* JsonParserCodable.swift */,
 				3A05764F231C58C90056F7E5 /* ReachabilityProtocol.swift */,
@@ -200,7 +200,6 @@
 				EACE8F0D723855B400CC3CC2 /* Pods-DdotAssignmentTests.debug.xcconfig */,
 				FC85E19CE4A970239BBC4D48 /* Pods-DdotAssignmentTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -384,7 +383,7 @@
 				3A057650231C58C90056F7E5 /* ReachabilityProtocol.swift in Sources */,
 				3A6F653C231B292700168ECE /* NetworkManager.swift in Sources */,
 				3A6F6540231B2B2200168ECE /* JsonParserCodable.swift in Sources */,
-				3A057654231C597F0056F7E5 /* NetworkManagerErrors.swift in Sources */,
+				3A057654231C597F0056F7E5 /* DataLoaderErrors.swift in Sources */,
 				3A6F6519231B277B00168ECE /* ViewController.swift in Sources */,
 				3A6F6544231B33AC00168ECE /* Pagination.swift in Sources */,
 				3A057652231C58EA0056F7E5 /* Reachability.swift in Sources */,

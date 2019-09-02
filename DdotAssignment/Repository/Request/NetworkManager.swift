@@ -15,7 +15,7 @@ internal class NetworkManager {
     private var task: URLSessionDataTask?
     public var reachability: ReachabilityProtocol?
 
-    func getRequestAsync(from url: URL, dataReceived: @escaping (Data?, NetworkManagerErrors?) -> ()) {
+    func getRequestAsync(from url: URL, dataReceived: @escaping (Data?, DataLoaderErrors?) -> ()) {
         let sessionConfig = URLSessionConfiguration.default
         if reachability?.isConnectedToNetwork() ?? false {
         session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
