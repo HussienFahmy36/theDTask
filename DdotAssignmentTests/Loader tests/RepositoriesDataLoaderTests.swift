@@ -46,21 +46,8 @@ class RepositoriesDataLoaderTests: XCTestCase {
             expectation.fulfill()
             XCTAssertNotNil(result)
             XCTAssertNotNil(result?.count == 5)
-
         })
         waitForExpectations(timeout: 2, handler: nil)
-
-    }
-
-    func testloadRepositories() {
-        let expectation = self.expectation(description: "Loading repos with 5 per page")
-        repositoriesDataLoader?.loadRepositories(completionBlock: { (result, error) in
-            expectation.fulfill()
-            XCTAssertNotNil(result)
-
-        })
-        waitForExpectations(timeout: 2, handler: nil)
-
     }
 
     func testLoadRepositoriesInvalidPageId() {
@@ -69,11 +56,8 @@ class RepositoriesDataLoaderTests: XCTestCase {
         repositoriesDataLoader?.remoteLoadRepositories(completionBlock: { (result, error) in
             expectation.fulfill()
             XCTAssertTrue(result?.count == 0)
-
-
         })
         waitForExpectations(timeout: 2, handler: nil)
-
     }
 
 }

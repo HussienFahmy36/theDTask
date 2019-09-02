@@ -9,35 +9,25 @@
 import Foundation
 import Disk
 
-struct RepositoriesDataLoader {
+class RepositoriesDataLoader {
 
-    var pagination: Pagination?
-
-    var pageID = 1 {
-        didSet(newValue) {
-            pagination?.pageID = newValue
-        }
-    }
-
-    var recordsPerPage = 15 {
-        didSet(newValue) {
-            pagination?.recordsPerPage = newValue
-        }
-    }
-
+    var pageID = 1
+    var recordsPerPage = 15
     var requestURLString: String {
         return "https://api.github.com/users/JakeWharton/repos?page=\(pageID)&per_page=\(recordsPerPage)"
     }
-
     var storageFileName: String {
-        return "DdotAssi_\(pageID)_\(recordsPerPage).json"
+        return "patch_\(pageID)_\(recordsPerPage).json"
     }
 
     func remoteLoadRepositories(completionBlock: @escaping ([Repository]?, DataLoaderErrors?) -> ()) {
         let manager = NetworkManager()
         manager.reachability = Reachability()
         guard let url = URL(string: requestURLString) else {return}
-        manager.getRequestAsync(from: url) { (data, error) in
+        manager.getRequestAsync(from: url) { [weak self] (data, error) in
+            guard let `self` = self else {
+                return
+            }
             if error == nil {
                 let dataParser = JsonParserCodable()
                 guard let result = dataParser.parse(data: data, to: [Repository].self) else {
@@ -61,8 +51,11 @@ struct RepositoriesDataLoader {
     }
 
     func loadRepositories(completionBlock: @escaping ([Repository]?, DataLoaderErrors?) -> ()) {
-        localLoadRepositories { (repos, error) in
+        localLoadRepositories { [weak self](repos, error) in
             if repos == nil && error == nil {
+                guard let `self` = self else {
+                    return
+                }
                 //not cached url request new one
                 self.remoteLoadRepositories(completionBlock: completionBlock)
             }
