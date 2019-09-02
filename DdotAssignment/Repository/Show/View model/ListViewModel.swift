@@ -22,9 +22,11 @@ class ListViewModel {
                 return
             }
             if error == nil {
-                self.nextPageID = +1
-                self.repositoriesArray.append(contentsOf: repos?.map({self.getViewModel(from: $0)}) ?? [])
-                completionBlock(self.repositoriesArray, nil)
+                self.nextPageID = self.nextPageID + 1
+                print("nextPageID: \(self.nextPageID)")
+                let result = repos?.map({self.getViewModel(from: $0)}) ?? []
+                self.repositoriesArray.append(contentsOf: result)
+                completionBlock(result, nil)
             }
             else {
                 completionBlock(nil, error)

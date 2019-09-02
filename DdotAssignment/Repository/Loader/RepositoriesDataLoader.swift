@@ -52,7 +52,7 @@ class RepositoriesDataLoader {
 
     func loadRepositories(completionBlock: @escaping ([Repository]?, DataLoaderErrors?) -> ()) {
         localLoadRepositories { [weak self](repos, error) in
-            if repos == nil && error == nil {
+            if repos == nil && error == .loadFromCacheFails {
                 guard let `self` = self else {
                     return
                 }
