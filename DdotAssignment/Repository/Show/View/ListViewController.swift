@@ -13,6 +13,7 @@ class ListViewController: UIViewController {
     let viewModel = ListViewModel()
     let cellHeight = 105
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,20 @@ class ListViewController: UIViewController {
     }
 
     func loadAndView() {
+        loadingIndicator.alpha = 1
+        loadingIndicator.startAnimating()
         viewModel.load { (repos, error) in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {
                     return
                 }
+                self.loadingIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
         }
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 
@@ -56,6 +63,9 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             viewModel.shouldFetchNext(currentIndex: indexPath.row) {
                 loadAndView()
             }
+        if viewModel.reachedEnd {
+            loadingIndicator.alpha = 0
+        }
     }
 }
 

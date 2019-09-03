@@ -24,6 +24,7 @@ class RepositoryPreviewCell: UITableViewCell {
         repoLinkLabel.text = viewModel.repoLink
         progLangLabel.text = viewModel.progLanguage
         setupLinkLabelFormat()
+        setupProgLangLabelFormat()
     }
 
     private func setupLinkLabelFormat() {
@@ -36,6 +37,12 @@ class RepositoryPreviewCell: UITableViewCell {
                                       range: range)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: range)
         repoLinkLabel.attributedText = attributedString
+    }
+
+    private func setupProgLangLabelFormat() {
+        progLangLabel.layer.cornerRadius = 4
+        progLangLabel.clipsToBounds = true
+        progLangLabel.textColor = .darkGray
     }
 
 
