@@ -52,10 +52,10 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if viewModel.shouldFetchNext(currentIndex: indexPath.row) {
-            loadAndView()
-        }
+        if tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false &&
+            viewModel.shouldFetchNext(currentIndex: indexPath.row) {
+                loadAndView()
+            }
     }
-
 }
 

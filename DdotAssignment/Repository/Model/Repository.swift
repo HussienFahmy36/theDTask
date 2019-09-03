@@ -7,7 +7,7 @@ struct Repository: Codable {
     let repositoryPrivate: Bool
     let owner: Owner
     let htmlURL: String
-    let repositoryDescription: String
+    let repositoryDescription: String?
     let fork: Bool
     let url: String
     let forksURL: String
@@ -121,13 +121,17 @@ struct Repository: Codable {
 
 enum DefaultBranch: String, Codable {
     case master = "master"
+    case ghPages = "gh-pages"
+    case reflect = "reflect"
+    case gradle = "gradle"
+    case jakes = "jakes"
 }
 
 // MARK: - License
 struct License: Codable {
-    let key, name, spdxID: String
-    let url: String
-    let nodeID: String
+    let key, name, spdxID: String?
+    let url: String?
+    let nodeID: String?
 
     enum CodingKeys: String, CodingKey {
         case key, name
