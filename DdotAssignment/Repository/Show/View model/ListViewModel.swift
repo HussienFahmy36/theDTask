@@ -24,7 +24,6 @@ class ListViewModel {
             }
             if error == nil {
                 self.nextPageID = self.nextPageID + 1
-                print("nextPageID: \(self.nextPageID)")
                 guard let reposResponse = repos else {
                     return
                 }
