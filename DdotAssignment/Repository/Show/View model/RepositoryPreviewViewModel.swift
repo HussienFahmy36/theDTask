@@ -9,8 +9,13 @@
 import Foundation
 struct RepositoryPreviewViewModel {
     var full_name: String = ""
+    var repoLink: String = ""
+    var progLanguage: String = ""
+
 
     init(repo: Repository) {
-        full_name = repo.fullName
+        full_name = repo.name
+        repoLink = repo.gitURL
+        progLanguage = repo.language ?? ""
     }
 }

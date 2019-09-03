@@ -25,36 +25,54 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepositoryPreviewCell" rowHeight="200" id="NWo-DH-ejR" customClass="RepositoryPreviewCell" customModule="DdotAssignment" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepositoryPreviewCell" rowHeight="104" id="NWo-DH-ejR" customClass="RepositoryPreviewCell" customModule="DdotAssignment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NWo-DH-ejR" id="fHv-Zi-evh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="103.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Dz-Lh-bah">
-                                                    <rect key="frame" x="20" y="11" width="167" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Dz-Lh-bah">
+                                                    <rect key="frame" x="21" y="12" width="372" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="NP9-Ro-bQP"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Repo link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1v-Bz-XYc">
-                                                    <rect key="frame" x="20" y="43" width="276" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1v-Bz-XYc">
+                                                    <rect key="frame" x="21" y="43" width="372" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Programming language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZe-Lc-CFi">
-                                                    <rect key="frame" x="20" y="75" width="276" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Programming language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZe-Lc-CFi">
+                                                    <rect key="frame" x="21" y="74" width="178" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="a1v-Bz-XYc" firstAttribute="leading" secondItem="0Dz-Lh-bah" secondAttribute="leading" id="3in-xO-WC2"/>
+                                                <constraint firstItem="vZe-Lc-CFi" firstAttribute="height" secondItem="a1v-Bz-XYc" secondAttribute="height" id="4Bq-xw-oxe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0Dz-Lh-bah" secondAttribute="trailing" constant="1" id="4gT-Wn-2Ec"/>
+                                                <constraint firstItem="vZe-Lc-CFi" firstAttribute="top" secondItem="a1v-Bz-XYc" secondAttribute="bottom" constant="10" id="Hcw-g8-N9P"/>
+                                                <constraint firstItem="a1v-Bz-XYc" firstAttribute="trailing" secondItem="0Dz-Lh-bah" secondAttribute="trailing" id="QEu-5G-xbP"/>
+                                                <constraint firstItem="0Dz-Lh-bah" firstAttribute="leading" secondItem="fHv-Zi-evh" secondAttribute="leadingMargin" constant="1" id="WUf-eu-Pub"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vZe-Lc-CFi" secondAttribute="trailing" constant="20" symbolic="YES" id="Ymu-rj-6s6"/>
+                                                <constraint firstItem="a1v-Bz-XYc" firstAttribute="height" secondItem="0Dz-Lh-bah" secondAttribute="height" id="bqZ-mU-u63"/>
+                                                <constraint firstItem="vZe-Lc-CFi" firstAttribute="leading" secondItem="a1v-Bz-XYc" secondAttribute="leading" id="kqR-SY-siz"/>
+                                                <constraint firstItem="a1v-Bz-XYc" firstAttribute="top" secondItem="0Dz-Lh-bah" secondAttribute="bottom" constant="10" id="nao-XL-QnT"/>
+                                                <constraint firstItem="0Dz-Lh-bah" firstAttribute="top" secondItem="fHv-Zi-evh" secondAttribute="topMargin" constant="1" id="uWS-mT-WTq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ownerLabel" destination="0Dz-Lh-bah" id="BVN-qp-ifd"/>
+                                            <outlet property="progLangLabel" destination="vZe-Lc-CFi" id="pcG-DW-MNN"/>
+                                            <outlet property="repoLinkLabel" destination="a1v-Bz-XYc" id="9Tw-BX-xXW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

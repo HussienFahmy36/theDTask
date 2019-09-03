@@ -11,7 +11,7 @@ import UIKit
 class ListViewController: UIViewController {
 
     let viewModel = ListViewModel()
-    let cellHeight = 200
+    let cellHeight = 105
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
